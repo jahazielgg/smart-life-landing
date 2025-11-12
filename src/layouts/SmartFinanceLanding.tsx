@@ -366,7 +366,7 @@ const SmartFinanceLanding = () => {
                     }}
                   >
                     <p className="italic mb-6 text-lg leading-relaxed" style={{ color: smartFinanceColors.textGray }}>
-                      "{testimonial.text}"
+                      &ldquo;{testimonial.text}&rdquo;
                     </p>
                     <div className="flex items-center gap-4">
                       <div
