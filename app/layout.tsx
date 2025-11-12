@@ -36,10 +36,6 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={inter.className}>
-        <Script
-          src="https://gumroad.com/js/gumroad.js"
-          strategy="lazyOnload"
-        />
         <Suspense fallback={<div className="min-h-screen bg-bg-primary" />}>
           {children}
         </Suspense>

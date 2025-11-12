@@ -47,13 +47,13 @@ const Testimonials = () => {
   const allTestimonials = [...testimonials, ...testimonials, ...testimonials]
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-emerald-500/5 via-bg-primary to-green-500/5 overflow-hidden">
-      {/* Animated background with emerald gradient */}
+    <section className="relative py-20 bg-gradient-to-br from-white/5 via-bg-primary to-gray-200/5 overflow-hidden">
+      {/* Animated background with white gradient */}
       <motion.div
         className="absolute inset-0"
         style={{
-          background: `radial-gradient(circle at 30% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
-                      radial-gradient(circle at 70% 80%, rgba(5, 150, 105, 0.06) 0%, transparent 50%)`,
+          background: `radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 70% 80%, rgba(240, 240, 240, 0.06) 0%, transparent 50%)`,
         }}
         animate={{
           y: [-20, 20, -20],
@@ -84,11 +84,11 @@ const Testimonials = () => {
             <h2
               className="text-3xl md:text-5xl font-bold"
               style={{
-                background: 'linear-gradient(135deg, #ffffff 0%, #10b981 100%)',
+                background: 'linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                filter: 'drop-shadow(0 0 20px rgba(16, 185, 129, 0.3))',
+                filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.3))',
               }}
             >
               Lo que dicen nuestros usuarios
@@ -99,13 +99,13 @@ const Testimonials = () => {
           </p>
 
           {/* Social proof visual */}
-          <div className="inline-flex items-center gap-4 px-8 py-4 bg-success/10 border border-success/20 rounded-xl">
+          <div className="inline-flex items-center gap-4 px-8 py-4 bg-white/5 border border-white/20 rounded-xl">
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
               ))}
             </div>
-            <span className="text-primary-light font-semibold">4.8/5 ⭐ promedio de satisfacción</span>
+            <span className="text-white font-semibold">4.8/5 ⭐ promedio de satisfacción</span>
           </div>
         </motion.div>
 
@@ -133,11 +133,11 @@ const Testimonials = () => {
                 className="min-w-[350px] rounded-xl p-6 transition-all duration-300 backdrop-blur-sm"
                 style={{
                   background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(16, 185, 129, 0.2)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
                 }}
                 whileHover={{
-                  boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)',
-                  borderColor: 'rgba(16, 185, 129, 0.4)',
+                  boxShadow: '0 0 20px rgba(255, 255, 255, 0.2)',
+                  borderColor: 'rgba(255, 255, 255, 0.3)',
                 }}
               >
                 {/* Stars */}
@@ -157,9 +157,9 @@ const Testimonials = () => {
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center font-bold"
                     style={{
-                      background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                      color: '#ffffff',
-                      boxShadow: '0 0 15px rgba(16, 185, 129, 0.4)',
+                      background: 'linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%)',
+                      color: '#0a1a10',
+                      boxShadow: '0 0 15px rgba(255, 255, 255, 0.3)',
                     }}
                   >
                     {testimonial.avatar}

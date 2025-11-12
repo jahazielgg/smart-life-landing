@@ -56,14 +56,14 @@ const Selection = () => {
   ]
 
   return (
-    <section className="relative min-h-screen py-20 overflow-hidden">
-      {/* Background with emerald gradient matching Smart Finance */}
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-bg-primary to-green-500/5">
+    <section id="selection" className="relative min-h-screen py-20 overflow-hidden">
+      {/* Background with white gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-bg-primary to-gray-200/5">
         <motion.div
           className="absolute inset-0"
           style={{
-            background: `radial-gradient(circle at 30% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(5, 150, 105, 0.08) 0%, transparent 50%)`,
+            background: `radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(240, 240, 240, 0.06) 0%, transparent 50%)`,
           }}
           animate={{
             y: [-20, 20, -20],
@@ -77,11 +77,11 @@ const Selection = () => {
         />
       </div>
 
-      {/* Background pattern with emerald color */}
+      {/* Background pattern with white color */}
       <div
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
       />
 
@@ -93,17 +93,17 @@ const Selection = () => {
           viewport={{ once: true, amount: 0.3 }}
           className="max-w-6xl mx-auto"
         >
-          {/* Title with gradient effect matching Smart Finance emerald color */}
+          {/* Title with gradient effect in white */}
           <motion.h2
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold text-center mb-16"
             style={{
-              background: 'linear-gradient(135deg, #ffffff 0%, #10b981 100%)',
+              background: 'linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
               lineHeight: '1.2',
-              filter: 'drop-shadow(0 0 20px rgba(16, 185, 129, 0.3))',
+              filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.3))',
             }}
           >
             ¿Qué te gustaría lograr?
@@ -116,7 +116,7 @@ const Selection = () => {
                 key={index}
                 variants={itemVariants}
               >
-                <Link href={option.link}>
+                <Link href={option.link} style={{ textDecoration: 'none' }}>
                   <motion.div
                     className="group relative rounded-3xl p-10 transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-sm"
                     style={{
@@ -174,20 +174,17 @@ const Selection = () => {
                       </p>
 
                       {/* CTA Button with gradient and neon glow */}
-                      <motion.div
+                      <div
                         className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-base uppercase tracking-wide transition-all duration-300"
                         style={{
                           background: option.gradient,
                           color: '#ffffff',
                           boxShadow: `0 10px 30px ${option.glowColor}, 0 0 20px ${option.glowColor}`,
                         }}
-                        whileHover={{
-                          boxShadow: `0 15px 40px ${option.glowColor}, 0 0 30px ${option.glowColor}`,
-                        }}
                       >
                         <span>Comenzar</span>
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                      </motion.div>
+                      </div>
                     </div>
 
                     {/* Glow effect on hover with neon effect */}

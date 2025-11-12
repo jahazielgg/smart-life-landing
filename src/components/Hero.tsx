@@ -74,13 +74,13 @@ const Hero = () => {
 
   return (
     <section className="relative pt-32 pb-20 text-center overflow-hidden">
-      {/* Animated background with emerald gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-bg-primary to-green-500/5">
+      {/* Animated background with white gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-bg-primary to-gray-200/5">
         <motion.div
           className="absolute inset-0"
           style={{
-            background: `radial-gradient(circle at 30% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(5, 150, 105, 0.08) 0%, transparent 50%)`,
+            background: `radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(240, 240, 240, 0.06) 0%, transparent 50%)`,
           }}
           animate={{
             y: [-20, 20, -20],
@@ -94,11 +94,11 @@ const Hero = () => {
         />
       </div>
 
-      {/* Background pattern with emerald color */}
+      {/* Background pattern with white color */}
       <div
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
       />
 
@@ -110,16 +110,16 @@ const Hero = () => {
           className="max-w-4xl mx-auto"
         >
 
-          {/* Title with gradient effect matching Selection emerald color */}
+          {/* Title with gradient effect in white */}
           <motion.h1
             variants={itemVariants}
             className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight"
             style={{
-              background: 'linear-gradient(135deg, #ffffff 0%, #10b981 100%)',
+              background: 'linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-              filter: 'drop-shadow(0 0 20px rgba(16, 185, 129, 0.3))',
+              filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.3))',
             }}
           >
             Organiza tu vida completa
@@ -178,16 +178,16 @@ const Hero = () => {
             className="mt-12 mb-8"
           >
             <motion.a
-              href="#products"
+              href="#selection"
               className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg transition-all duration-300"
               style={{
-                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                color: '#ffffff',
-                boxShadow: '0 10px 30px rgba(16, 185, 129, 0.4), 0 0 20px rgba(16, 185, 129, 0.4)',
+                background: 'linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%)',
+                color: '#0a1a10',
+                boxShadow: '0 10px 30px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2)',
               }}
               whileHover={{
                 scale: 1.05,
-                boxShadow: '0 15px 40px rgba(16, 185, 129, 0.4), 0 0 30px rgba(16, 185, 129, 0.4)',
+                boxShadow: '0 15px 40px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3)',
               }}
               whileTap={{ scale: 0.95 }}
             >
@@ -207,7 +207,7 @@ const Hero = () => {
               { icon: Headphones, text: 'Soporte incluido' },
             ].map((item, index) => (
               <div key={index} className="flex items-center gap-2">
-                <item.icon className="w-4 h-4 text-primary" />
+                <item.icon className="w-4 h-4 text-white" />
                 {item.text}
               </div>
             ))}

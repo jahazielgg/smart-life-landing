@@ -11,7 +11,7 @@ const Footer = () => {
       className="py-12 md:py-16"
       style={{
         background: 'rgba(255, 255, 255, 0.02)',
-        borderTop: '1px solid rgba(16, 185, 129, 0.2)',
+        borderTop: '1px solid rgba(255, 255, 255, 0.15)',
       }}
     >
       <div className="container mx-auto px-5">
@@ -31,10 +31,10 @@ const Footer = () => {
                 width={40}
                 height={40}
                 style={{
-                  filter: 'drop-shadow(0 0 8px rgba(16, 185, 129, 0.4))'
+                  filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))'
                 }}
               />
-              <span className="text-xl font-bold" style={{ color: '#10b981' }}>
+              <span className="text-xl font-bold" style={{ color: '#ffffff' }}>
                 Smart Life
               </span>
             </div>
@@ -66,7 +66,7 @@ const Footer = () => {
                 className="flex items-center gap-3 text-sm transition-colors duration-300"
                 style={{ color: '#b0b0b0' }}
                 whileHover={{
-                  color: '#10b981',
+                  color: '#ffffff',
                   x: 5,
                 }}
               >
@@ -79,7 +79,7 @@ const Footer = () => {
                 className="flex items-center gap-3 text-sm transition-colors duration-300"
                 style={{ color: '#b0b0b0' }}
                 whileHover={{
-                  color: '#10b981',
+                  color: '#ffffff',
                   x: 5,
                 }}
               >
@@ -92,7 +92,7 @@ const Footer = () => {
                 className="flex items-center gap-3 text-sm transition-colors duration-300"
                 style={{ color: '#b0b0b0' }}
                 whileHover={{
-                  color: '#10b981',
+                  color: '#ffffff',
                   x: 5,
                 }}
               >
@@ -114,7 +114,7 @@ const Footer = () => {
                 className="flex items-center gap-3 text-sm transition-colors duration-300"
                 style={{ color: '#b0b0b0' }}
                 whileHover={{
-                  color: '#10b981',
+                  color: '#ffffff',
                   x: 5,
                 }}
               >
@@ -127,7 +127,7 @@ const Footer = () => {
                 className="flex items-center gap-3 text-sm transition-colors duration-300"
                 style={{ color: '#b0b0b0' }}
                 whileHover={{
-                  color: '#10b981',
+                  color: '#ffffff',
                   x: 5,
                 }}
               >

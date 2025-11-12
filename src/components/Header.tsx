@@ -34,8 +34,8 @@ const Header = () => {
             className="flex items-center justify-between gap-6 px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-lg"
             style={{
               background: scrolled ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.03)',
-              border: scrolled ? '1px solid rgba(16, 185, 129, 0.5)' : '1px solid rgba(16, 185, 129, 0.2)',
-              boxShadow: scrolled ? '0 0 30px rgba(16, 185, 129, 0.3)' : '0 0 15px rgba(16, 185, 129, 0.2)',
+              border: scrolled ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid rgba(255, 255, 255, 0.15)',
+              boxShadow: scrolled ? '0 0 30px rgba(255, 255, 255, 0.2)' : '0 0 15px rgba(255, 255, 255, 0.15)',
             }}
           >
         <motion.a
@@ -49,17 +49,17 @@ const Header = () => {
         </motion.a>
 
         <motion.a
-          href="#products"
+          href="#selection"
           className="flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300"
           style={{
-            background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-            color: '#ffffff',
-            boxShadow: '0 5px 15px rgba(16, 185, 129, 0.4), 0 0 10px rgba(16, 185, 129, 0.4)',
+            background: 'linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%)',
+            color: '#0a1a10',
+            boxShadow: '0 5px 15px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2)',
           }}
           whileHover={{
             y: -2,
             scale: 1.05,
-            boxShadow: '0 8px 20px rgba(16, 185, 129, 0.4), 0 0 15px rgba(16, 185, 129, 0.4)',
+            boxShadow: '0 8px 20px rgba(255, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.3)',
           }}
           whileTap={{ scale: 0.95 }}
         >

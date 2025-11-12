@@ -32,49 +32,49 @@ const WhyNotion = () => {
       icon: Cloud,
       title: 'Todo en la nube',
       description: 'Accede a tus datos desde cualquier dispositivo. Tu información siempre sincronizada y disponible.',
-      color: '#10b981',
+      color: '#ffffff',
     },
     {
       icon: Smartphone,
       title: 'Apps nativas móviles',
       description: 'Aplicaciones oficiales para iOS y Android. Experiencia fluida en móvil, tablet y computadora.',
-      color: '#059669',
+      color: '#e0e0e0',
     },
     {
       icon: Zap,
       title: 'Rápido y potente',
       description: 'Interfaz intuitiva con velocidad impresionante. Sin complicaciones técnicas ni curvas de aprendizaje.',
-      color: '#047857',
+      color: '#d0d0d0',
     },
     {
       icon: Lock,
       title: 'Seguro y confiable',
       description: 'Tus datos protegidos con encriptación de nivel empresarial. Respaldo automático incluido.',
-      color: '#065f46',
+      color: '#c0c0c0',
     },
     {
       icon: Blocks,
       title: 'Totalmente personalizable',
       description: 'Adapta cada plantilla a tu estilo. Notion se ajusta a tu forma de trabajar, no al revés.',
-      color: '#10b981',
+      color: '#ffffff',
     },
     {
       icon: Database,
       title: 'Bases de datos poderosas',
       description: 'Organiza información compleja con facilidad. Filtra, ordena y visualiza tus datos como prefieras.',
-      color: '#059669',
+      color: '#e0e0e0',
     },
     {
       icon: RefreshCw,
       title: 'Sincronización instantánea',
       description: 'Cambios en tiempo real en todos tus dispositivos. Nunca pierdas información importante.',
-      color: '#047857',
+      color: '#d0d0d0',
     },
     {
       icon: Globe,
       title: 'Compatible con todo',
       description: 'Funciona en Windows, Mac, Linux, iOS y Android. Una solución verdaderamente multiplataforma.',
-      color: '#065f46',
+      color: '#c0c0c0',
     },
   ]
 
@@ -82,7 +82,7 @@ const WhyNotion = () => {
     <section className="relative py-20 md:py-28 overflow-hidden">
       {/* Animated background */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-bg-primary to-green-500/5"
+        className="absolute inset-0 bg-gradient-to-br from-white/5 via-bg-primary to-gray-200/5"
         animate={{
           backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
         }}
@@ -95,8 +95,8 @@ const WhyNotion = () => {
         <motion.div
           className="absolute inset-0"
           style={{
-            background: `radial-gradient(circle at 30% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(5, 150, 105, 0.08) 0%, transparent 50%)`,
+            background: `radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(240, 240, 240, 0.06) 0%, transparent 50%)`,
           }}
           animate={{
             y: [-20, 20, -20],
@@ -114,7 +114,7 @@ const WhyNotion = () => {
       <div
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
       />
 
@@ -130,11 +130,11 @@ const WhyNotion = () => {
             variants={itemVariants}
             className="text-3xl md:text-5xl font-bold text-center mb-6"
             style={{
-              background: 'linear-gradient(135deg, #ffffff 0%, #10b981 100%)',
+              background: 'linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-              filter: 'drop-shadow(0 0 20px rgba(16, 185, 129, 0.3))',
+              filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.3))',
             }}
           >
             ¿Por qué usar Notion?
@@ -157,12 +157,12 @@ const WhyNotion = () => {
                 className="rounded-2xl p-6 backdrop-blur-sm transition-all duration-300"
                 style={{
                   background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(16, 185, 129, 0.2)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
                 }}
                 whileHover={{
                   y: -8,
-                  boxShadow: '0 20px 40px rgba(16, 185, 129, 0.3)',
-                  borderColor: 'rgba(16, 185, 129, 0.5)',
+                  boxShadow: '0 20px 40px rgba(255, 255, 255, 0.2)',
+                  borderColor: 'rgba(255, 255, 255, 0.3)',
                 }}
               >
                 {/* Icon */}
@@ -207,7 +207,7 @@ const WhyNotion = () => {
             className="text-center mt-16"
           >
             <p className="text-lg mb-6" style={{ color: '#b0b0b0' }}>
-              Más de <strong style={{ color: '#10b981' }}>30 millones de usuarios</strong> confían en Notion para organizar su trabajo y su vida.
+              Más de <strong style={{ color: '#ffffff' }}>30 millones de usuarios</strong> confían en Notion para organizar su trabajo y su vida.
             </p>
             <motion.a
               href="https://notion.so"
@@ -216,17 +216,17 @@ const WhyNotion = () => {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-base transition-all duration-300"
               style={{
                 background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(16, 185, 129, 0.3)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
                 color: '#ffffff',
               }}
               whileHover={{
                 scale: 1.05,
-                boxShadow: '0 10px 30px rgba(16, 185, 129, 0.3)',
-                borderColor: 'rgba(16, 185, 129, 0.6)',
+                boxShadow: '0 10px 30px rgba(255, 255, 255, 0.2)',
+                borderColor: 'rgba(255, 255, 255, 0.4)',
               }}
               whileTap={{ scale: 0.95 }}
             >
-              <Globe className="w-5 h-5" style={{ color: '#10b981' }} />
+              <Globe className="w-5 h-5" style={{ color: '#ffffff' }} />
               Conoce más sobre Notion
             </motion.a>
           </motion.div>
