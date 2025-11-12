@@ -5,7 +5,8 @@
       "Bash(dir \"C:\\Users\\Jahaziel\\Documents\\Notion Templates\\SmartLife-Landing\\public\\assets\\smartfinance\" /b)",
       "Bash(dir \"C:\\Users\\Jahaziel\\Documents\\Notion Templates\\SmartLife-Landing\\public\\assets\\smarthabits\" /b)",
       "Bash(npm run build:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []

@@ -33,7 +33,7 @@ const Selection = () => {
       icon: Wallet,
       title: 'Controlar mis finanzas',
       description: 'El sistema definitivo en Notion para controlar tus ingresos, gastos, metas y suscripciones.',
-      link: '/smartfinance',
+      link: '/finance',
       primaryColor: '#10b981', // emerald-500
       secondaryColor: '#059669', // emerald-600
       glowColor: 'rgba(16, 185, 129, 0.4)',
@@ -45,7 +45,7 @@ const Selection = () => {
       icon: Brain,
       title: 'Desarrollar buenos hábitos',
       description: 'Sistema completo para construir rutinas efectivas y alcanzar tus metas personales.',
-      link: '/smarthabits',
+      link: '/habits',
       primaryColor: '#FF6B35',
       secondaryColor: '#F7931E',
       glowColor: 'rgba(255, 107, 53, 0.4)',

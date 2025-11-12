@@ -1,38 +1,26 @@
 'use client'
 
-import { useState } from 'react'
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Brain, Target, Zap, Calendar, Repeat, TrendingUp, Cloud, Globe, Home } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import VideoDemo from '../components/VideoDemo'
 import ParallaxCard from '@/components/ParallaxCard'
-import GumroadDialog from '../components/GumroadDialog'
+import {
+  containerVariants,
+  itemVariants,
+  buttonHoverVariants,
+  cardHoverVariants,
+  headerAnimation,
+  fadeInAnimation,
+  viewportConfig,
+  createInfiniteScrollAnimation,
+  gpuAcceleration,
+} from '../utils/animationConfig'
 
 const SmartHabitsLanding = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false)
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.8, 0.25, 1],
-      },
-    },
-  }
+  const gumroadUrl = 'https://gumroad.com/checkout?embed=true&product=sejth&quantity=1&price=799&referrer=https%3A%2F%2Fgumroad.com%2Fwidgets'
 
   // Color scheme Orange/Amber for Smart Habits
   const smartHabitsColors = {
@@ -134,6 +122,18 @@ const SmartHabitsLanding = () => {
     'Soporte personalizado por email',
   ]
 
+  // Memoize button hover animations
+  const buttonHover = useMemo(
+    () => buttonHoverVariants(smartHabitsColors.primaryOrange, 0.5),
+    [smartHabitsColors.primaryOrange]
+  )
+
+  // Memoize infinite scroll animation
+  const infiniteScroll = useMemo(
+    () => createInfiniteScrollAnimation(testimonials.length, 416, 50),
+    [testimonials.length]
+  )
+
   return (
     <div className="relative min-h-screen overflow-hidden" style={{ background: `linear-gradient(135deg, ${smartHabitsColors.bgDark} 0%, ${smartHabitsColors.darkOrange} 100%)` }}>
       {/* Background Pattern */}
@@ -148,9 +148,8 @@ const SmartHabitsLanding = () => {
         {/* Header with back to home */}
         <motion.header
           className="fixed top-5 w-full z-50"
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          {...headerAnimation}
+          style={gpuAcceleration}
         >
           <div className="container mx-auto px-5">
             <div className="max-w-4xl mx-auto">
@@ -170,24 +169,24 @@ const SmartHabitsLanding = () => {
                   Smart Life
                 </Link>
 
-                <motion.button
-                  onClick={() => setIsDialogOpen(true)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300"
+                <motion.a
+                  href={gumroadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 cursor-pointer"
                   style={{
                     background: `linear-gradient(135deg, ${smartHabitsColors.primaryOrange} 0%, ${smartHabitsColors.secondaryOrange} 100%)`,
                     color: smartHabitsColors.textWhite,
                     boxShadow: '0 5px 15px rgba(255, 107, 53, 0.4)',
+                    ...gpuAcceleration,
                   }}
-                  whileHover={{
-                    y: -2,
-                    scale: 1.05,
-                    boxShadow: '0 8px 20px rgba(255, 107, 53, 0.4)',
-                  }}
-                  whileTap={{ scale: 0.95 }}
+                  variants={buttonHover}
+                  whileHover="hover"
+                  whileTap="tap"
                 >
                   <Brain className="w-4 h-4" />
                   Obtener ahora
-                </motion.button>
+                </motion.a>
               </nav>
             </div>
           </div>
@@ -200,7 +199,7 @@ const SmartHabitsLanding = () => {
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={viewportConfig}
               className="grid md:grid-cols-2 gap-12 md:gap-16 items-center max-w-6xl mx-auto"
             >
               {/* Hero Text */}
@@ -219,22 +218,24 @@ const SmartHabitsLanding = () => {
                 <p className="text-lg md:text-xl mb-10 leading-relaxed" style={{ color: smartHabitsColors.textGray }}>
                   El sistema completo en Notion para desarrollar hábitos positivos, alcanzar tus metas y crear una vida más productiva.
                 </p>
-                <motion.button
-                  onClick={() => setIsDialogOpen(true)}
-                  className="inline-block px-10 py-5 rounded-full font-semibold text-base uppercase tracking-wide transition-all duration-300"
+                <motion.a
+                  href={gumroadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-10 py-5 rounded-full font-semibold text-base uppercase tracking-wide transition-all duration-300 cursor-pointer text-center"
                   style={{
                     background: `linear-gradient(135deg, ${smartHabitsColors.primaryOrange} 0%, ${smartHabitsColors.secondaryOrange} 100%)`,
                     color: smartHabitsColors.textWhite,
                     boxShadow: `0 10px 30px rgba(255, 107, 53, 0.4)`,
+                    ...gpuAcceleration,
+                    textDecoration: 'none',
                   }}
-                  whileHover={{
-                    y: -3,
-                    boxShadow: `0 15px 40px rgba(255, 107, 53, 0.5)`,
-                  }}
-                  whileTap={{ scale: 0.98 }}
+                  variants={buttonHover}
+                  whileHover="hover"
+                  whileTap="tap"
                 >
                   Empieza ahora
-                </motion.button>
+                </motion.a>
               </motion.div>
 
               {/* Hero Mockup */}
@@ -250,20 +251,6 @@ const SmartHabitsLanding = () => {
           </div>
         </section>
 
-        {/* Video Demo Section */}
-        <VideoDemo
-          title="Ve Smart Habits en acción"
-          videos={[
-            {
-              title: 'Demostración completa del sistema',
-              url: 'https://www.youtube.com/watch?v=DEMO_VIDEO_ID',
-              icon: '🚀',
-            },
-          ]}
-          primaryColor={smartHabitsColors.primaryOrange}
-          glowColor="rgba(255, 107, 53, 0.1)"
-        />
-
         {/* Benefits Section */}
         <section className="py-20 md:py-28" style={{ background: 'rgba(255, 107, 53, 0.02)' }}>
           <div className="container mx-auto px-5">
@@ -271,7 +258,7 @@ const SmartHabitsLanding = () => {
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={viewportConfig}
             >
               <motion.h2
                 variants={itemVariants}
@@ -290,12 +277,12 @@ const SmartHabitsLanding = () => {
                     style={{
                       background: 'rgba(255, 255, 255, 0.03)',
                       border: '1px solid rgba(255, 107, 53, 0.1)',
+                      ...gpuAcceleration,
                     }}
-                    whileHover={{
-                      y: -10,
-                      borderColor: smartHabitsColors.primaryOrange,
-                      boxShadow: '0 20px 40px rgba(255, 107, 53, 0.15)',
-                    }}
+                    whileHover={cardHoverVariants(
+                      smartHabitsColors.primaryOrange,
+                      'rgba(255, 107, 53, 0.15)'
+                    ).hover}
                   >
                     <div
                       className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"
@@ -318,13 +305,27 @@ const SmartHabitsLanding = () => {
           </div>
         </section>
 
+        {/* Video Demo Section */}
+        <VideoDemo
+          title="Ve Smart Habits en acción"
+          videos={[
+            {
+              title: 'Demostración completa del sistema',
+              url: 'https://www.youtube.com/watch?v=DEMO_VIDEO_ID',
+              icon: '',
+            },
+          ]}
+          primaryColor={smartHabitsColors.primaryOrange}
+          glowColor="rgba(255, 107, 53, 0.1)"
+        />
+
+
+
         {/* Testimonials Section */}
         <section className="py-20 md:py-28 overflow-hidden" style={{ background: 'rgba(255, 107, 53, 0.02)' }}>
           <div className="container mx-auto px-5">
             <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              {...fadeInAnimation}
               className="text-3xl md:text-4xl font-bold text-center mb-16"
               style={{ color: smartHabitsColors.primaryOrange }}
             >
@@ -341,16 +342,10 @@ const SmartHabitsLanding = () => {
             >
               <motion.div
                 className="flex gap-8"
-                animate={{
-                  x: [0, -2400],
-                }}
-                transition={{
-                  duration: 60,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
+                {...infiniteScroll}
                 style={{
                   width: 'max-content',
+                  ...gpuAcceleration,
                 }}
               >
                 {/* Duplicate testimonials for infinite scroll */}
@@ -401,7 +396,7 @@ const SmartHabitsLanding = () => {
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={viewportConfig}
             >
               <motion.h2
                 variants={itemVariants}
@@ -448,12 +443,7 @@ const SmartHabitsLanding = () => {
           }}
         >
           <div className="container mx-auto px-5">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <motion.div {...fadeInAnimation}>
               <h2
                 className="text-3xl md:text-5xl font-bold mb-8"
                 style={{
@@ -468,22 +458,24 @@ const SmartHabitsLanding = () => {
               <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed" style={{ color: smartHabitsColors.textGray }}>
                 Empieza hoy con Smart Habits y construye la disciplina que te llevará al éxito. Miles de personas ya están mejorando cada día.
               </p>
-              <motion.button
-                onClick={() => setIsDialogOpen(true)}
-                className="inline-block px-10 py-5 rounded-full font-semibold text-base uppercase tracking-wide transition-all duration-300"
+              <motion.a
+                href={gumroadUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-10 py-5 rounded-full font-semibold text-base uppercase tracking-wide transition-all duration-300 cursor-pointer text-center"
                 style={{
                   background: `linear-gradient(135deg, ${smartHabitsColors.primaryOrange} 0%, ${smartHabitsColors.secondaryOrange} 100%)`,
                   color: smartHabitsColors.textWhite,
                   boxShadow: `0 10px 30px rgba(255, 107, 53, 0.4)`,
+                  ...gpuAcceleration,
+                  textDecoration: 'none',
                 }}
-                whileHover={{
-                  y: -3,
-                  boxShadow: `0 15px 40px rgba(255, 107, 53, 0.5)`,
-                }}
-                whileTap={{ scale: 0.98 }}
+                variants={buttonHover}
+                whileHover="hover"
+                whileTap="tap"
               >
                 Obtener Smart Habits
-              </motion.button>
+              </motion.a>
             </motion.div>
           </div>
         </section>
@@ -492,27 +484,25 @@ const SmartHabitsLanding = () => {
         <section className="py-20 md:py-32">
           <div className="container mx-auto px-5">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              {...fadeInAnimation}
               className="max-w-4xl mx-auto"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-16" style={{ color: smartHabitsColors.textWhite }}>
                 ¿O prefieres controlar tus finanzas?
               </h2>
 
-              <Link href="/smartfinance">
+              <Link href="/finance">
                 <motion.div
                   className="group relative rounded-3xl p-10 transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-sm"
                   style={{
                     background: 'rgba(255, 255, 255, 0.03)',
                     border: '1px solid rgba(0, 255, 133, 0.2)',
+                    ...gpuAcceleration,
                   }}
-                  whileHover={{
-                    scale: 1.02,
-                    y: -10,
-                    boxShadow: '0 0 30px rgba(0, 255, 133, 0.4)',
-                  }}
+                  whileHover={cardHoverVariants(
+                    'rgba(0, 255, 133, 0.2)',
+                    'rgba(0, 255, 133, 0.4)'
+                  ).hover}
                   whileTap={{ scale: 0.98 }}
                 >
                   <div
@@ -562,13 +552,6 @@ const SmartHabitsLanding = () => {
           </div>
         </section>
       </div>
-
-      {/* Gumroad Dialog */}
-      <GumroadDialog
-        isOpen={isDialogOpen}
-        onClose={() => setIsDialogOpen(false)}
-        url="https://jahazielgpz.gumroad.com/l/smarthabits"
-      />
     </div>
   )
 }
