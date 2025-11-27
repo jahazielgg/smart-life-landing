@@ -4,7 +4,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { TrendingUp, Rocket, Wallet, Brain, BarChart3, Verified, RefreshCw, Headphones } from 'lucide-react'
 import { useCountUp } from '../hooks/useCountUp'
 import { useInView } from '../hooks/useInView'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import ParallaxCard from './ParallaxCard'
 
 const Hero = () => {
@@ -13,6 +13,29 @@ const Hero = () => {
   const count89 = useCountUp(89, inView, 2000)
   const count32 = useCountUp(3.2, inView, 2000)
   const count48 = useCountUp(4.8, inView, 2000)
+
+  // Mobile carousel state
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const mockups = [
+    {
+      src: '/assets/mockups/smartfinance-mockup.png',
+      alt: 'SmartFinance Mockup',
+      label: 'SmartFinance',
+    },
+    {
+      src: '/assets/mockups/smarthabits-mockup.png',
+      alt: 'SmartHabits Mockup',
+      label: 'SmartHabits',
+    },
+  ]
+
+  // Auto-advance carousel every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % mockups.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   // Mouse movement values
   const mouseX = useMotionValue(0)
@@ -109,6 +132,49 @@ const Hero = () => {
           animate="visible"
           className="max-w-4xl mx-auto"
         >
+          {/* Mobile Carousel - Only visible on mobile */}
+          <motion.div
+            variants={itemVariants}
+            className="md:hidden mb-8 relative"
+          >
+            <div className="relative overflow-hidden rounded-2xl">
+              <motion.div
+                className="flex"
+                animate={{ x: `-${currentSlide * 100}%` }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+              >
+                {mockups.map((mockup, index) => (
+                  <div
+                    key={index}
+                    className="min-w-full flex justify-center items-center px-4"
+                  >
+                    <img
+                      src={mockup.src}
+                      alt={mockup.alt}
+                      className="w-full max-w-sm mx-auto rounded-lg shadow-2xl"
+                    />
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Carousel indicators */}
+            <div className="flex justify-center gap-2 mt-4">
+              {mockups.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className="w-2 h-2 rounded-full transition-all duration-300"
+                  style={{
+                    background: currentSlide === index
+                      ? 'linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%)'
+                      : 'rgba(255, 255, 255, 0.3)',
+                    width: currentSlide === index ? '24px' : '8px',
+                  }}
+                />
+              ))}
+            </div>
+          </motion.div>
 
           {/* Title with gradient effect in white */}
           <motion.h1
@@ -136,41 +202,41 @@ const Hero = () => {
             <strong className="text-text-primary"> Finanzas, hábitos y productividad</strong> conectados en un solo lugar.
           </motion.p>
 
-                    {/* Mockup Images */}
-<motion.div
-  variants={itemVariants}
-  className="mt-16 flex justify-center gap-8 flex-wrap"
->
-  <motion.div
-    initial={{ rotate: -3 }}
-    animate={{ rotate: -3 }}
-    className="transform"
-  >
-    <ParallaxCard
-      src="/assets/mockups/smartfinance-mockup.png"
-      alt="SmartFinance Mockup"
-      label="SmartFinance"
-      className="shadow-2xl"
-      tilt={16}
-      depth={18}
-    />
-  </motion.div>
+          {/* Mockup Images - Desktop only */}
+          <motion.div
+            variants={itemVariants}
+            className="mt-16 hidden md:flex justify-center gap-8 flex-wrap"
+          >
+            <motion.div
+              initial={{ rotate: -3 }}
+              animate={{ rotate: -3 }}
+              className="transform"
+            >
+              <ParallaxCard
+                src="/assets/mockups/smartfinance-mockup.png"
+                alt="SmartFinance Mockup"
+                label="SmartFinance"
+                className="shadow-2xl"
+                tilt={16}
+                depth={18}
+              />
+            </motion.div>
 
-  <motion.div
-    initial={{ rotate: 2 }}
-    animate={{ rotate: 2 }}
-    className="transform"
-  >
-    <ParallaxCard
-      src="/assets/mockups/smarthabits-mockup.png"
-      alt="SmartHabits Mockup"
-      label="SmartHabits"
-      className="shadow-2xl"
-      tilt={-16}   // leve inclinación contraria para contraste
-      depth={18}
-    />
-  </motion.div>
-</motion.div>
+            <motion.div
+              initial={{ rotate: 2 }}
+              animate={{ rotate: 2 }}
+              className="transform"
+            >
+              <ParallaxCard
+                src="/assets/mockups/smarthabits-mockup.png"
+                alt="SmartHabits Mockup"
+                label="SmartHabits"
+                className="shadow-2xl"
+                tilt={-16}
+                depth={18}
+              />
+            </motion.div>
+          </motion.div>
 
           {/* CTA Button with gradient and neon glow */}
           <motion.div

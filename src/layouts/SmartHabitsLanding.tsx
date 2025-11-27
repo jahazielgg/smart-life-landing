@@ -213,7 +213,7 @@ const SmartHabitsLanding = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  Smart Habits – Construye la mejor versión de ti
+                  Smart Habits
                 </h1>
                 <p className="text-lg md:text-xl mb-10 leading-relaxed" style={{ color: smartHabitsColors.textGray }}>
                   El sistema completo en Notion para desarrollar hábitos positivos, alcanzar tus metas y crear una vida más productiva.
@@ -250,6 +250,26 @@ const SmartHabitsLanding = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* Video Demo Section */}
+        <VideoDemo
+          title="Ve Smart Habits en acción"
+          videos={[
+            {
+              title: 'Guía completa para usar la plantilla',
+              url: 'https://youtu.be/1_DMTSY576U',
+              icon: '',
+            },
+            {
+              title: 'Configurar atajos de iPhone',
+              url: 'https://youtu.be/F6nr30URE4c',
+              icon: '',
+            },
+          ]}
+          primaryColor={smartHabitsColors.primaryOrange}
+          glowColor="rgba(255, 107, 53, 0.1)"
+        />
+
 
         {/* Benefits Section */}
         <section className="py-20 md:py-28" style={{ background: 'rgba(255, 107, 53, 0.02)' }}>
@@ -305,24 +325,6 @@ const SmartHabitsLanding = () => {
           </div>
         </section>
 
-        {/* Video Demo Section */}
-        <VideoDemo
-          title="Ve Smart Habits en acción"
-          videos={[
-            {
-              title: 'Guía completa para usar la plantilla',
-              url: 'https://youtu.be/1_DMTSY576U',
-              icon: '',
-            },
-            {
-              title: 'Configurar atajos de iPhone',
-              url: 'https://youtu.be/F6nr30URE4c',
-              icon: '',
-            },
-          ]}
-          primaryColor={smartHabitsColors.primaryOrange}
-          glowColor="rgba(255, 107, 53, 0.1)"
-        />
 
 
 

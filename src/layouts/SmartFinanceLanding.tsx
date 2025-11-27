@@ -209,7 +209,7 @@ const SmartFinanceLanding = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  Smart Finance – Ahorra y duplica tus ganancias
+                  Smart Finance - Ahorra y duplica tus ganancias
                 </h1>
                 <p className="text-lg md:text-xl mb-10 leading-relaxed" style={{ color: smartFinanceColors.textGray }}>
                   El sistema definitivo en Notion para controlar tus ingresos, gastos, metas y suscripciones.
@@ -247,6 +247,24 @@ const SmartFinanceLanding = () => {
           </div>
         </section>
 
+        {/* Video Demo Section */}
+        <VideoDemo
+          title="Ve Smart Finance en acción"
+          videos={[
+            {
+              title: 'Demostración completa',
+              url: 'https://www.youtube.com/watch?v=gF24GeTJB4M',
+              icon: '',
+            },
+            {
+              title: 'Configurar atajos en iPhone',
+              url: 'https://www.youtube.com/watch?v=fBNy-HFv-kw',
+              icon: '',
+            },
+          ]}
+          primaryColor={smartFinanceColors.primaryGreen}
+          glowColor="rgba(0, 255, 133, 0.1)"
+        />
         
         {/* Benefits Section */}
         <section className="py-20 md:py-28" style={{ background: 'rgba(0, 255, 133, 0.02)' }}>
@@ -301,26 +319,6 @@ const SmartFinanceLanding = () => {
             </motion.div>
           </div>
         </section>
-
-
-        {/* Video Demo Section */}
-        <VideoDemo
-          title="Ve Smart Finance en acción"
-          videos={[
-            {
-              title: 'Demostración completa',
-              url: 'https://www.youtube.com/watch?v=gF24GeTJB4M',
-              icon: '',
-            },
-            {
-              title: 'Configurar atajos en iPhone',
-              url: 'https://www.youtube.com/watch?v=fBNy-HFv-kw',
-              icon: '',
-            },
-          ]}
-          primaryColor={smartFinanceColors.primaryGreen}
-          glowColor="rgba(0, 255, 133, 0.1)"
-        />
 
         {/* Testimonials Section */}
         <section className="py-20 md:py-28 overflow-hidden" style={{ background: 'rgba(0, 255, 133, 0.02)' }}>
