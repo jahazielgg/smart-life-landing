@@ -258,7 +258,7 @@ const SmartFinanceLanding = () => {
             },
             {
               title: 'Configurar atajos en iPhone',
-              url: 'https://www.youtube.com/watch?v=fBNy-HFv-kw',
+              url: 'https://www.youtube.com/watch?v=iGIIyOF_95I',
               icon: '',
             },
           ]}
