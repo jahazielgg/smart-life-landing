@@ -13,7 +13,12 @@ export const metadata: Metadata = {
   authors: [{ name: 'Smart Life Team' }],
   viewport: 'width=device-width, initial-scale=1',
   icons: {
-    icon: '/assets/favicon/favicon.png',
+    icon: [
+      { url: '/assets/favicon/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/assets/favicon/favicon.png', sizes: '16x16', type: 'image/png' },
+    ],
+    shortcut: '/assets/favicon/favicon.png',
+    apple: '/assets/favicon/favicon.png',
   },
   openGraph: {
     title: 'Smart Life - Organiza tu vida en Notion',
@@ -35,6 +40,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
+      <head>
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.png?v=1" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon.png?v=1" />
+        <link rel="shortcut icon" href="/assets/favicon/favicon.png?v=1" />
+        <link rel="apple-touch-icon" href="/assets/favicon/favicon.png?v=1" />
+      </head>
       <body className={inter.className}>
         <Suspense fallback={<div className="min-h-screen bg-bg-primary" />}>
           {children}
