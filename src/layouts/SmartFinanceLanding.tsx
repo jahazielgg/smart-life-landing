@@ -199,7 +199,7 @@ const SmartFinanceLanding = () => {
               className="grid md:grid-cols-2 gap-12 md:gap-16 items-center max-w-6xl mx-auto"
             >
               {/* Hero Text */}
-              <motion.div variants={itemVariants} className="text-left">
+              <motion.div variants={itemVariants} className="text-center md:text-left">
                 <h1
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                   style={{
@@ -209,7 +209,7 @@ const SmartFinanceLanding = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  Smart Finance - Ahorra y duplica tus ganancias
+                  Smart Finance – Ahorra y duplica tus ganancias
                 </h1>
                 <p className="text-lg md:text-xl mb-10 leading-relaxed" style={{ color: smartFinanceColors.textGray }}>
                   El sistema definitivo en Notion para controlar tus ingresos, gastos, metas y suscripciones.
@@ -235,14 +235,16 @@ const SmartFinanceLanding = () => {
               </motion.div>
 
               {/* Hero Mockup */}
-              <ParallaxCard
-                src="/assets/mockups/smartfinance-mockup.png"
-                alt="SmartFinance Mockup"
-                label="SmartFinance"
-                width={500}
-                tilt={16}
-                depth={18}
-              />              
+              <div className="flex justify-center">
+                <ParallaxCard
+                  src="/assets/mockups/smartfinance-mockup.png"
+                  alt="SmartFinance Mockup"
+                  label="SmartFinance"
+                  width={500}
+                  tilt={16}
+                  depth={18}
+                />
+              </div>
             </motion.div>
           </div>
         </section>
