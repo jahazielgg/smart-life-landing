@@ -130,7 +130,7 @@ const SmartHabitsLanding = () => {
 
   // Memoize infinite scroll animation
   const infiniteScroll = useMemo(
-    () => createInfiniteScrollAnimation(testimonials.length, 416, 50),
+    () => createInfiniteScrollAnimation(testimonials.length, 416, 40),
     [testimonials.length]
   )
 
@@ -310,8 +310,13 @@ const SmartHabitsLanding = () => {
           title="Ve Smart Habits en acción"
           videos={[
             {
-              title: 'Demostración completa del sistema',
-              url: 'https://www.youtube.com/watch?v=DEMO_VIDEO_ID',
+              title: 'Guía completa para usar la plantilla',
+              url: 'https://youtu.be/1_DMTSY576U',
+              icon: '',
+            },
+            {
+              title: 'Configurar atajos de iPhone',
+              url: 'https://youtu.be/F6nr30URE4c',
               icon: '',
             },
           ]}

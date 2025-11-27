@@ -125,8 +125,6 @@ const VideoDemo = ({ title, videos, primaryColor, glowColor }: VideoDemoProps) =
 
                 {/* Play indicator overlay (decorative) */}
                 <div className="mt-4 flex items-center justify-center gap-2 text-sm" style={{ color: primaryColor }}>
-                  <Play className="w-4 h-4" />
-                  <span>Click para reproducir</span>
                 </div>
               </motion.div>
             ))}

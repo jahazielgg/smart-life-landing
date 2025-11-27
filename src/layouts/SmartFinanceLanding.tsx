@@ -126,7 +126,7 @@ const SmartFinanceLanding = () => {
 
   // Memoize infinite scroll animation
   const infiniteScroll = useMemo(
-    () => createInfiniteScrollAnimation(testimonials.length, 416, 50),
+    () => createInfiniteScrollAnimation(testimonials.length, 416, 40),
     [testimonials.length]
   )
 
