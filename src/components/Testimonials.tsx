@@ -1,7 +1,9 @@
 'use client'
 
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
+import { createInfiniteScrollAnimation, gpuAcceleration } from '../utils/animationConfig'
 
 const Testimonials = () => {
   const testimonials = [
@@ -43,8 +45,11 @@ const Testimonials = () => {
     }
   ]
 
-  // Duplicate testimonials multiple times for seamless infinite scroll
-  const allTestimonials = [...testimonials, ...testimonials, ...testimonials]
+  // Memoize infinite scroll animation
+  const infiniteScroll = useMemo(
+    () => createInfiniteScrollAnimation(testimonials.length, 416, 40),
+    [testimonials.length]
+  )
 
   return (
     <section className="relative py-20 bg-gradient-to-br from-white/5 via-bg-primary to-gray-200/5 overflow-hidden">
@@ -110,66 +115,56 @@ const Testimonials = () => {
         </motion.div>
 
         {/* Scrolling testimonials */}
-        <div className="relative overflow-hidden">
-          {/* Left fade gradient */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-bg-primary to-transparent z-10 pointer-events-none" />
-          {/* Right fade gradient */}
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-bg-primary to-transparent z-10 pointer-events-none" />
-
+        <div
+          className="relative overflow-hidden"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+          }}
+        >
           <motion.div
-            className="flex gap-6"
-            animate={{
-              x: ['0%', `-${(100 / 3)}%`],
-            }}
-            transition={{
-              duration: 40,
-              repeat: Infinity,
-              ease: 'linear',
+            className="flex gap-8"
+            {...infiniteScroll}
+            style={{
+              width: 'max-content',
+              ...gpuAcceleration,
             }}
           >
-            {allTestimonials.map((testimonial, index) => (
-              <motion.div
+            {/* Duplicate testimonials for infinite scroll */}
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
+              <div
                 key={index}
-                className="min-w-[350px] rounded-xl p-6 transition-all duration-300 backdrop-blur-sm"
+                className="p-8 rounded-3xl backdrop-blur-sm transition-all duration-300 flex-shrink-0"
                 style={{
                   background: 'rgba(255, 255, 255, 0.03)',
                   border: '1px solid rgba(255, 255, 255, 0.15)',
-                }}
-                whileHover={{
-                  boxShadow: '0 0 20px rgba(255, 255, 255, 0.2)',
-                  borderColor: 'rgba(255, 255, 255, 0.3)',
+                  minWidth: '400px',
+                  maxWidth: '400px',
                 }}
               >
-                {/* Stars */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-
-                {/* Testimonial text */}
-                <p className="text-text-secondary mb-4 italic leading-relaxed">
-                  {testimonial.text}
+                <p className="italic mb-6 text-lg leading-relaxed text-text-secondary">
+                  &ldquo;{testimonial.text}&rdquo;
                 </p>
-
-                {/* Author */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-4">
                   <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center font-bold"
+                    className="w-12 h-12 rounded-full flex items-center justify-center font-semibold flex-shrink-0"
                     style={{
                       background: 'linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%)',
                       color: '#0a1a10',
-                      boxShadow: '0 0 15px rgba(255, 255, 255, 0.3)',
                     }}
                   >
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <div className="font-semibold text-text-primary">{testimonial.author}</div>
-                    <div className="text-sm text-text-secondary">{testimonial.role}</div>
+                    <h4 className="font-semibold mb-1 text-text-primary">
+                      {testimonial.author}
+                    </h4>
+                    <p className="text-sm text-text-secondary">
+                      {testimonial.role}
+                    </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         </div>
