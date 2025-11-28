@@ -44,7 +44,7 @@ const Header = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Image src="./assets/logo/logo-menu.png" alt="Smart Life Logo" width={32} height={32} />
+          <Image src="/assets/logo/logo-menu.png" alt="Smart Life Logo" width={32} height={32} />
           Smart Life
         </motion.a>
 
